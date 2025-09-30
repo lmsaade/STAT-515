@@ -3,7 +3,7 @@
     "path": "~/STAT 515/lsaade.github.io/about.qmd",
     "project_path": "about.qmd",
     "type": "quarto_markdown",
-    "hash": "278915872",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1759192262440.0,
@@ -17,7 +17,7 @@
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
         "rmdVisualModeLocation": "61:0",
-        "cursorPosition": "0,0",
+        "cursorPosition": "6,0",
         "scrollLine": "0"
     },
     "folds": "",
