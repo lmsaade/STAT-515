@@ -6,10 +6,12 @@ website:
   title: "About Me"
   navbar:
     left:
-      - href: index.qmd
-        text: About Me
-      - about.qmd
-      - dummy.qmd
+    - href: index.qmd
+      text: About Me
+    - href: about.qmd
+      text: Dummy 1
+    - href: dummy.qmd
+      text: Dummy 2
 
 format:
   html:
