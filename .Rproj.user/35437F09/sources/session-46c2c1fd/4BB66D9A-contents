@@ -9,7 +9,6 @@ website:
       - href: index.qmd
         text: About Me
       - about.qmd
-      - text: Dummy2
       - dummy.qmd
 
 format:

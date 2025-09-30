@@ -3,7 +3,7 @@
     "path": "~/STAT 515/lsaade.github.io/_quarto.yml",
     "project_path": "_quarto.yml",
     "type": "yaml",
-    "hash": "2686266677",
+    "hash": "305094134",
     "contents": "",
     "dirty": false,
     "created": 1759157665842.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "12,17",
+        "cursorPosition": "10,17",
         "scrollLine": "1"
     },
     "folds": "",
-    "lastKnownWriteTime": 1759192839,
+    "lastKnownWriteTime": 1759193485,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1759192839997,
+    "last_content_update": 1759193485536,
     "read_only": false,
     "read_only_alternatives": []
 }
