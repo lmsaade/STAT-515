@@ -3,15 +3,15 @@ project:
   output-dir: docs
 
 website:
-  title: "About Me"
+  title: "Midterm Project"
   navbar:
     left:
     - href: index.qmd
-      text: About Me
+      text: Main Page
     - href: about.qmd
-      text: Dummy 1
+      text: Codes
     - href: dummy.qmd
-      text: Dummy 2
+      text: References
 
 format:
   html:

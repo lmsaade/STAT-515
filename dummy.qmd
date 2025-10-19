@@ -1,5 +1,17 @@
 ---
-title: "Dummy 2"
+title: "References"
 ---
 
-More dummy pages
+**References - generated using MyBib**
+
+Holtz, Y. (2025). *Customize plotly tooltip*. R-Graph-Gallery.com. https://r-graph-gallery.com/customize-plotly-tooltip.html
+
+Spotrac. (2025). *Mike Glennon \| NFL Contracts & Salaries \| Spotrac.com*. Spotrac.com. https://www.spotrac.com/nfl/player/earnings/\_/id/12354/mike-glennon
+
+*WTF Visualizations*. (n.d.). Viz.wtf. https://viz.wtf/
+
+‌
+
+‌
+
+‌

@@ -1,9 +1,117 @@
 ---
-title: "Dummy 1"
+title: Codes
 ---
 
-This is a dummy page
+These are the codes used to create the graphics I made in R for the midterm project.
+
+**Cleanup**
 
 ```{r}
-1 + 1
+library(tidyverse)
+library(scales)
+library(plotly)
+library(readxl)
+
+# Read in Excel
+glennon = read_excel("C:/Users/Owner/Dropbox/My PC (DESKTOP-J87JN1F)/Documents/STAT 515/glennon.xlsx")
+
+glennon2 = read_excel("C:/Users/Owner/Dropbox/My PC (DESKTOP-J87JN1F)/Documents/STAT 515/glennon2.xlsx")
+
+# Data Type Cleanup
+x = c("Tampa Bay Buccaneers", "Chicago Bears", "Arizona Cardinals", "Oakland Raiders", "Jacksonville Jaguars", "New York Giants")
+glennon = glennon %>%
+  mutate_at(x, as.numeric)
+
+# Undo Scientific Notation
+options(scipen = 999)
+str(glennon)
+
+# Pivot Longer
+long_glennon = glennon %>%
+  pivot_longer(cols = x,
+               names_to = "Team",
+               values_to = "Dollars")
+
+# Add Player Column
+long_glennon$Player = "Mike Glennon"
+```
+
+**Redesign 1**
+
+```{r}
+# Redesign 1 - Classic Bar Chart
+plt1 = ggplot(long_glennon, aes(x = reorder(Team, Dollars), y = Dollars, fill = Team)) +
+  geom_bar(stat = "identity", color = "black") +
+  labs(title = "Mike Glennon's Earning Percentage by Team",
+       x = "Team",
+       y = "Earnings %") +
+  geom_text(aes(label = dollar(Dollars)), vjust = -0.5, size = 1.75) +
+  scale_y_continuous(labels = label_dollar()) +
+  scale_fill_manual(values = c(
+    "Tampa Bay Buccaneers" = "#D70100",
+    "Chicago Bears" = "#CA3700",
+    "Arizona Cardinals" = "#97233F",
+    "Oakland Raiders" = "#A5ACAF",
+    "Jacksonville Jaguars" = "#9F792C",
+    "New York Giants" = "#0B2265")) + 
+  theme(axis.text.x = element_text(size = 9, angle = 45, hjust = 1)) +
+  theme(axis.text.y = element_text(size = 9))
+plot(plt1)
+```
+
+**Redesign 2**
+
+```{r}
+# Redesign 2 - Stacked Bar Chart
+long_glennon$Team = reorder(long_glennon$Team, long_glennon$Dollars)
+plt2 = ggplot(long_glennon, aes(x = Player, y = Dollars, fill = Team,
+                                text = paste("Team: ", Team,
+                                              "\nEarnings: ", dollar(Dollars),
+                                              "\nPercentage: ", percent(Dollars/sum(Dollars))))) +
+              geom_bar(stat = "identity", position = "fill", color = "black") +
+              labs(title = "Mike Glennon's Earnings by Team",
+                    x = "Teams",
+                    y = "Percentage Earnings") +
+              scale_fill_manual(values = c(
+                "Tampa Bay Buccaneers" = "#D70100",
+                "Chicago Bears" = "#CA3700",
+                "Arizona Cardinals" = "#97233F",
+                "Oakland Raiders" = "#A5ACAF",
+                "Jacksonville Jaguars" = "#9F792C",
+                "New York Giants" = "#0B2265")) +
+              theme(axis.text.x = element_blank()) +
+              scale_y_continuous(labels = scales::percent)
+
+interactive_plt2 = ggplotly(plt2, tooltip = "text")
+interactive_plt2
+```
+
+**Next Steps Redesign**
+
+```{r}
+# Next Steps
+plt3 = suppressWarnings(ggplot(glennon2, aes(x = Year, y = `Total Cash`, fill = Team))+
+  geom_bar(aes(text = paste("Team: ", Team,
+                            "\nCash Earnings: ",dollar(`Total Cash`))),
+          stat = "identity", 
+          color = "black") +
+  geom_line(data = glennon2, aes(x = Year, y = `Cumulative Cash`),inherit.aes = FALSE, color = "steelblue") +
+  geom_point(data = glennon2, aes(x = Year, y = `Cumulative Cash`,
+                           text = paste("Cumulative Earnings: ", dollar(`Cumulative Cash`))),
+             inherit.aes = FALSE, color = "steelblue", size = 2) +
+  labs(title = "Mike Glennon's Earnings Over Time") +
+  scale_x_continuous(breaks = unique(glennon2$Year)) +
+  scale_y_continuous(labels = label_dollar()) +
+  scale_fill_manual(values = c(
+    "Tampa Bay Buccaneers" = "red",
+    "Chicago Bears" = "#E86100",
+    "Arizona Cardinals" = "#97233F",
+    "Oakland Raiders" = "#A5ACAF",
+    "Jacksonville Jaguars" = "#9F792C",
+    "New York Giants" = "#0B2265")) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+)
+
+interactive_plt3 = (ggplotly(plt3, tooltip = "text"))
+interactive_plt3
 ```
