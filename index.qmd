@@ -4,7 +4,7 @@ title: "Main"
 
 **Original Visual**
 
-![*Original Mike Glennon Visual from https://viz.wtf/*](C:/Users/Owner/Dropbox/My%20PC%20(DESKTOP-J87JN1F)/Documents/STAT%20515/glennon.png)
+![*Original Mike Glennon Visual from https://viz.wtf/*](glennon.png)
 
 This visual is a humorous depiction of Mike Glennon's earnings in the NFL categorized by the different teams he's played on. While it's most likely intended to be funny and not exactly helpful, there are a couple of different ways we could better communicate the original author's message. There are a couple of things that could be improved from the original visual. The bars are not ordered in any fashion; ordering the bars could improve reader readability and clarity. The other problem is that the bars are not clearly proportional to each other. Without a y-axis and straight lines, it's hard to tell that the author intended for the different team sections to be proportional and could further confuse readers.
 
@@ -16,7 +16,7 @@ When it came to the actual visualizations, I chose the colors according to the t
 
 For the redesign, I made a new Excel sheet remaking the Sportrac.com datasheet. I took similar steps to the other graphs, like customized tooltips, color choice, and interactive graphics. However, this one was a little different since there was more intricate layering with the bar and line graphs. I originally was not going to include the geom_point, but at one point my line graph disappeared, so I brought in geom_point to bring it back and improve readability.
 
-```{r}
+```{r echo=FALSE, include=FALSE}
 library(tidyverse)
 library(scales)
 library(plotly)
@@ -47,13 +47,13 @@ long_glennon$Player = "Mike Glennon"
 
 ```
 
-**Redesign 1** ![Classic Bar Chart](C:/Users/Owner/Dropbox/My%20PC%20(DESKTOP-J87JN1F)/Documents/STAT%20515/lsaade.github.io/redesign1.png)
+**Redesign 1** ![Classic Bar Chart](redesign1.png)
 
 This is my first redesign of the original Mike Glennon visual. It's a classic bar chart with each bar broken out by team with the appropriate team color and the dollar amount as a label on top. The bars are sorted from smallest to largest earnings amount. There is a y-axis to help with the positioning for clarity and readability.
 
 **Redesign 2**
 
-```{r}
+```{r echo=FALSE}
 # Redesign 2 - 100% Stacked Bar Chart
 long_glennon$Team = reorder(long_glennon$Team, long_glennon$Dollars)
 plt2 = ggplot(long_glennon, aes(x = Player, y = Dollars, fill = Team,
@@ -82,7 +82,7 @@ This is a bar chart that is more closely aligned with the author's original grap
 
 **Concluding Remarks** The data itself is quite simple, but if I were to expand on this project, I would like to introduce time data. Perhaps Mike Glennon earned so much with the Chicago Bears because he was with them longer. We can analyze how long he spends with a team on average. Perhaps we can also introduce performance data. There are plenty of factors beyond salary that we can look at to create a holistic data story. This is a chart I created grabbing data from Sportrac.com that had time data, total cash, and cumulative earnings.
 
-```{r}
+```{r echo=FALSE}
 plt3 = suppressWarnings(ggplot(glennon2, aes(x = Year, y = `Total Cash`, fill = Team))+
   geom_bar(aes(text = paste("Team: ", Team,
                             "\nCash Earnings: ",dollar(`Total Cash`))),
