@@ -1,5 +1,5 @@
 ---
-title: Codes
+title: Lina's Codes
 ---
 
 These are the codes used to create the graphics I made in R for the midterm project.
@@ -42,7 +42,7 @@ long_glennon$Player = "Mike Glennon"
 # Redesign 1 - Classic Bar Chart
 plt1 = ggplot(long_glennon, aes(x = reorder(Team, Dollars), y = Dollars, fill = Team)) +
   geom_bar(stat = "identity", color = "black") +
-  labs(title = "Mike Glennon's Earning Percentage by Team",
+  labs(title = "Mike Glennon's Earnings by Team",
        x = "Team",
        y = "Earnings %") +
   geom_text(aes(label = dollar(Dollars)), vjust = -0.5, size = 1.75) +

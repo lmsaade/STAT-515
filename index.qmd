@@ -1,5 +1,5 @@
 ---
-title: "Main"
+title: "Lina Main"
 ---
 
 {{< video https://www.youtube.com/embed/kBAtO8J3fBo >}}
@@ -49,7 +49,7 @@ long_glennon$Player = "Mike Glennon"
 
 ```
 
-**Redesign 1** ![Classic Bar Chart](redesign1.png)
+**Redesign 1** ![Classic Bar Chart](redesign%201%20final.png)
 
 This is my first redesign of the original Mike Glennon visual. It's a classic bar chart with each bar broken out by team with the appropriate team color and the dollar amount as a label on top. The bars are sorted from smallest to largest earnings amount. There is a y-axis to help with the positioning for clarity and readability.
 

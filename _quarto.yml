@@ -7,11 +7,15 @@ website:
   navbar:
     left:
     - href: index.qmd
-      text: Main Page
+      text: Lina's Main Page
     - href: about.qmd
-      text: Codes
+      text: Lina's Codes
     - href: dummy.qmd
-      text: References
+      text: Lina's References
+    - href: mid_proj.html
+      text: Blake's Main Page
+    - href: mid-proj-codes.html
+      text: Blake's Codes
 
 format:
   html:
